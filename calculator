@@ -1,0 +1,30 @@
+Class Calculator
+
+package Tugas.com;
+
+// Abstraction
+public abstract class Calculator {
+    private double[] numbers;
+
+    public Calculator(int size) {
+        numbers = new double[size];
+    }
+
+    // Setter
+    public void setNumber(int index, double number) {
+        numbers[index] = number;
+    }
+
+    // Getter
+    public double[] getNumbers() {
+        return numbers;
+    }
+
+    public abstract double calculate();
+
+    public void clear() {
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = 0;
+        }
+    }
+}
