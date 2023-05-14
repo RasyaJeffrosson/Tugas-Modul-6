@@ -1,0 +1,65 @@
+package Tugas.com;
+
+public class BasicCalculator extends Calculator {
+    public BasicCalculator(int size) {
+        super(size);
+    }
+
+    public void addNumber(double number) {
+        for (int i = 0; i < getNumbers().length; i++) {
+            if (getNumbers()[i] == 0) {
+                setNumber(i, number);
+                break;
+            }
+        }
+    }
+
+    public double calculate() {
+        return add();
+    }
+
+    public double add() {
+        double result = 0;
+        for (double number : getNumbers()) {
+            result += number;
+        }
+        return result;
+    }
+
+    public double subtract() {
+        double result = getNumbers()[0];
+        for (int i = 1; i < getNumbers().length; i++) {
+            result -= getNumbers()[i];
+        }
+        return result;
+    }
+
+    public double multiply() {
+        double result = 1;
+        boolean hasNonZeroValue = false;
+
+        for (double number : getNumbers()) {
+            if (number != 0) {
+                hasNonZeroValue = true;
+                result *= number;
+            }
+        }
+
+        if (!hasNonZeroValue) {
+            result = 0;
+        }
+
+        return result;
+    }
+
+
+    public double divide() {
+        double result = getNumbers()[0];
+        for (int i = 1; i < getNumbers().length; i++) {
+            if (getNumbers()[i] != 0) {
+                result /= getNumbers()[i];
+            }
+        }
+        return result;
+    }
+}
